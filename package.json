@@ -9,7 +9,13 @@
     "build": "webpack --mode=production"
   },
   "bin": {
-    "your-boilerplate-name": "./bin/start.js"
+    "react-bp": "./bin/start.js"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ]
   },
   "author": "ismailgunayy",
   "license": "ISC",

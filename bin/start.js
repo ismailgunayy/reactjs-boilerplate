@@ -13,7 +13,7 @@ const babel = `"babel": ${JSON.stringify(packageJson.babel)}`;
 
 const getDeps = (deps) =>
   Object.entries(deps)
-    .map((dep) => `${dep[0]}@${dep[1]}`)
+    .map((dep) => `${dep[0]}@latest`)
     .toString()
     .replace(/,/g, " ")
     .replace(/^/g, "")
