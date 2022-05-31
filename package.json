@@ -1,5 +1,5 @@
 {
-  "name": "airbnb-experiences",
+  "name": "react-bp",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,9 +8,13 @@
     "start": "webpack-dev-server --mode=development --open --hot",
     "build": "webpack --mode=production"
   },
+  "bin": {
+    "your-boilerplate-name": "./bin/start.js"
+  },
   "author": "ismailgunayy",
   "license": "ISC",
   "dependencies": {
+    "fs-extra": "^10.1.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
   },
