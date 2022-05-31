@@ -1,0 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@400;600;700&family=Roboto+Mono:wght@300&family=Roboto:wght@300;400;700&family=Yuji+Boku&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+* {
+  margin: 0;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+}
