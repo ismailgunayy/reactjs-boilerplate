@@ -23,15 +23,24 @@ const getDeps = (deps) =>
 console.log("Initializing project..");
 
 // create folder and initialize npm
+
+let initCommand = `mkdir ${process.argv[2]} && cd ${process.argv[2]} && npm init -f`
+
+if (process.argv[2] === "." || process.argv[2] === undefined) {
+  initCommand = "npm init -f"
+}
+
+const dir = process.argv[2] === undefined ? "." : process.argv[2]
+
 exec(
-  `mkdir ${process.argv[2]} && cd ${process.argv[2]} && npm init -f`,
+  initCommand,
   (initErr, initStdout, initStderr) => {
     if (initErr) {
       console.error(`Everything was fine, then it wasn't:
     ${initErr}`);
       return;
     }
-    const packageJSON = `${process.argv[2]}/package.json`;
+    const packageJSON = `${dir}/package.json`;
     // replace the default scripts
     fs.readFile(packageJSON, (err, file) => {
       if (err) throw err;
@@ -49,7 +58,7 @@ exec(
 
     for (let i = 0; i < filesToCopy.length; i += 1) {
       fs.createReadStream(path.join(__dirname, `../${filesToCopy[i]}`)).pipe(
-        fs.createWriteStream(`${process.argv[2]}/${filesToCopy[i]}`)
+        fs.createWriteStream(`${dir}/${filesToCopy[i]}`)
       );
     }
 
@@ -64,7 +73,7 @@ exec(
         });
         res.on("end", () => {
           fs.writeFile(
-            `${process.argv[2]}/.gitignore`,
+            `${dir}/.gitignore`,
             body,
             { encoding: "utf-8" },
             (err) => {
@@ -82,7 +91,7 @@ exec(
     const devDeps = getDeps(packageJson.devDependencies);
     const deps = getDeps(packageJson.dependencies);
     exec(
-      `cd ${process.argv[2]} && git init && node -v && npm -v && npm i -D ${devDeps} && npm i -S ${deps}`,
+      `cd ${dir} && git init && node -v && npm -v && npm i -D ${devDeps} && npm i -S ${deps}`,
       (npmErr, npmStdout, npmStderr) => {
         if (npmErr) {
           console.error(`Some error while installing dependencies
@@ -94,10 +103,10 @@ exec(
 
         console.log("Copying additional files..");
         // copy additional source files
-        fs.copy(path.join(__dirname, "../src"), `${process.argv[2]}/src`)
+        fs.copy(path.join(__dirname, "../src"), `${dir}/src`)
           .then(() =>
             console.log(
-              `All done!\n\nYour project is now ready\n\nUse the below command to run the app.\n\ncd ${process.argv[2]}\nnpm start`
+              `All done!\n\nYour project is now ready\n\nUse the below command to run the app.\n\ncd ${dir}\nnpm start`
             )
           )
           .catch((err) => console.error(err));
