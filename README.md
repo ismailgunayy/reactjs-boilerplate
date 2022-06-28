@@ -3,9 +3,10 @@ ReactJS boilerplate without 'Create React App'
 
 # Usage
 Clone the repo into a folder (The repo must stay on your drive as long as you use the boilerplate)
-``` git clone https://github.com/ismailgunayy/reactjs-boilerplate
-    cd reactjs-boilerplate
-    npm link
+``` 
+$ git clone https://github.com/ismailgunayy/reactjs-boilerplate
+$ cd reactjs-boilerplate
+$ npm link
 ```
 
 Then you can use the boilerplate by typing `react-bp {folder-name}`
