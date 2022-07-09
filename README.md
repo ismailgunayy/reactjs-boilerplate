@@ -6,12 +6,11 @@ Clone the repo into a folder (The repo must stay on your drive as long as you us
 ``` 
 $ git clone https://github.com/ismailgunayy/reactjs-boilerplate
 $ cd reactjs-boilerplate
+$ npm install
 $ npm link
 ```
 
 Then you can use the boilerplate by typing `react-bp {folder-name}`
-    
-
  
 
 ### Disclaimer
