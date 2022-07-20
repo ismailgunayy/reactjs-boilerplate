@@ -1,5 +1,5 @@
 # reactjs-boilerplate
-ReactJS boilerplate without 'Create React App'
+Minified ReactJS boilerplate 
 
 # Usage
 Clone the repo into a folder (The repo must stay on your drive as long as you use the boilerplate)
